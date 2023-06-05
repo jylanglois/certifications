@@ -1,3 +1,96 @@
+# Identity & Federation
+
+## Organization Unit
+
+You can have OU within OU
+
+* ### Root OU (contain management account)
+
+* ### OU (contain member account)
+
+## Permissions
+
+When you create a member account the Organizations `OrganisationAccountAccessRole` is added to the member account 
+
+## Feature Modes
+
+* ### Consolidated billing
+
+  * Consolidated Billing across all accounts - single payment method
+  * Pricing benefits from aggregated usage (volume discount for EC2,S3...)
+  * Reserved instances are shared (can be turned off) - (member account must have sharing turn on)
+
+* ### All Feature
+
+  * Includes consolidated billing features, SCP
+  * Invited accounts must approve enabling all features
+  * Ability to apply an SCP to prevent member accounts from leaving the org
+
+## Service Control policies (SCP)
+
+Define allowlist or blocklist IAM actions
+
+## Particularities
+
+* Does not apply to the Management Account
+* SCP is applied to all the Users and Roles in the account, including Root user
+* The SCP does not affect Service-Linked roles
+* SCP must have an explicit Allow (does not allow anything by default)
+
+## Policies
+
+* ### Tag Policies
+
+  Ensure consistent tags, audit tagged resources, maintain proper resources categorization
+
+* ### AI Services Opt-Out Policies
+
+  Certain AWS AI may use your content for continuous improvement of Amazon AI/ML services
+
+* ### Backup Policies
+
+  AWS Backup enables you to create Backup Plans that define how to backup your AWS resources
+
+# Monitoring
+
+## Send Logs to Cloudwatch
+
+* Cloudwatch Logs Agent
+* Cloudwatch Unified Agent
+* SDK
+
+## Export Cloudwatch logs
+
+* ### S3 exports (not automated (up to 12 hors))
+
+* ### Cloudwatch Subscriptions
+
+  Filter the logs that you want and will sent data to the destination that you choose
+
+  * #### Managed lambda function to elasticsearch (real time)
+
+  * #### Custom lambda function
+
+  * #### Kinesis Data firehose
+
+  * #### Kinesis Data Streams
+
+## X-Ray
+
+Trace requests across your microservices (distributed systems)
+
+## Integrations
+
+* EC2 - install the X-Ray agent
+* ECS - install the X-Ray agent or Docker container
+* Beanstalk - agent is automatically installed if integration enabled
+* API Gateway - helpful to debug errors (such as 504)
+* Lambda
+
+### SDK
+
+The SDK is written in several language and send the trace event to the X-ray agent
+
 # Migration
 
 ## Storage Gateway
