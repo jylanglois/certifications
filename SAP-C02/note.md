@@ -1,3 +1,49 @@
+# Security
+
+## AWS Config
+
+Help record configuration and changes overt time
+
+## Particularities
+
+* AWS Config is a per-region service
+* Config data can be aggregated across regions and accounts
+
+## AWS Config Rules
+
+### Type of rules
+
+* AWS managed config rules
+* custom config rules (AWS lambda)
+
+### Type of evaluations
+
+* At each config changes
+* Regular time intervals
+
+# Caching
+
+## Amazon ElasticCache
+
+### Caching strategies/strategies
+
+* Application queries ElasticCache, if not available, get from RDS and store in ElasticCache (Lasy Load)
+* Use it as a session store
+
+### ElasticCache for Redis
+
+* Multi AZ with Auto-Failover
+* Support Read replicas to scale reads
+* Can enabled persistent Data Durability with Read Only Files (AOF) and backup the data
+* Look like a lot RDS
+
+### ElasticCache for Memcache
+
+* Multi-node for partitioning of data (sharding)
+* Non persistent
+* No backup and restore
+* Multi-threaded architecture
+
 # Identity & Federation
 
 ## Organization Unit
