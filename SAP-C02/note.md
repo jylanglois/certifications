@@ -139,6 +139,51 @@ The SDK is written in several language and send the trace event to the X-ray age
 
 # Migration
 
+## AWS DMS
+
+Quickly and securely migrate databases to AWS, resilient, self healing
+
+### Particularities
+
+* Muse use an EC2 instance with the DMS software installed to perform the replication tasks
+* You can combine the tool with Database Migration Service (DMS)
+* Support Full Load, Full Load + CDC, or CDC only
+
+### Type of migration supported
+
+* #### Homogeneous
+
+  `Oracle -> Ocracle`
+
+* #### Heterogeneous
+
+  `Microsoft SQL -> Aurora`
+
+### AWS Schema Conversion Tool (SCT)
+
+Convert your Databases Schema from one engine to another
+
+### Types of sources
+
+* On premise
+* EC2 instance
+* Azure SQL Database
+* Amazon RDS
+* Amazon S3
+* Document DB
+
+### Targets
+
+* On-premises
+* EC2 instances
+* Oracle
+* MS SQL server
+* PostgreSQL
+* SAP
+* OpenSearch Service (Only Target)
+* Kinesis Data Streams (Only Target)
+* Document DB (Only Target)
+
 ## Storage Gateway
 
 Bridge between on-premise data and cloud data
@@ -220,6 +265,21 @@ Bridge between on-premise data and cloud data
   * HDFS
   * S3 API
 
+## Amazon S3
+
+### S3 Object Ownership (ACL)
+
+S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to control ownership uploaded to your bucket and to disable or enable access control lists (ACLs). By default, Object Ownership is et to the bucket owner enforced setting and all ACLs are disabled. When ACLs are disabled, the bucket owners own all the objects in the bucket and manages access to data exclusively using access management policies.
+
+* #### ACLs disabled
+
+  * `Bucket owner enforced` (default) (the bucket use policies to define access control)
+
+* #### ACLs enabled
+
+  * `Bucket owner preferred` (The bucket owner owns and has full control over new objects)
+  * `Object writer` (The AWS account that uploads an ojbect owns the object, has full control over it, can can grant other users access to it through is ACL)
+
 # Compute & Load-Balancing
 
 ## AWS AppSync
@@ -234,7 +294,55 @@ It's a managed service that use GraphQL in the backend
 * Custom sources with AWS lambda
 * Retrieve data in real time (websocket)
 
+## Elastic Load Balancer
+
+### Cross-zone load balancing
+
+When cross-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones
+
 # Data Engineering
+
+## Amazon Athena
+
+Serverless Query service to analyze data stored in Amazon S3
+
+### Supported formats
+
+* CSV
+* JSON
+* ORC
+* AVRO
+* Parquet
+
+### Performance improvements
+
+* Use columnar data for cost-savings (less scan)  (Parquet or ORC)
+* Can use Glue to convert your data to Parquet or ORC
+* Compress data for smaller retrevial
+* Use larger files
+* Partition your data
+
+### Federated Queries
+
+Allow you to run SQL queries across data stored in relational, non-relational, object, and custom data sources (AWS or on-premises) Those query use Data source that run on AWS lambda to run federated queries
+
+## Amazon Document DB
+
+MongoDB is used to store, query, and index JSON data. The service is similar to AWS aurora
+
+### Type of instances
+
+* primary
+* replica
+
+## Amazon timestream
+
+A fully managed serverless database for timeseries data
+
+### Particularities
+
+* Much better and efficient than sql database for timeseries data
+* Built-in time series analytics functions
 
 ## Kinesis Data Stream
 
