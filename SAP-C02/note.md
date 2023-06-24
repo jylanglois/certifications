@@ -280,6 +280,22 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to con
   * `Bucket owner preferred` (The bucket owner owns and has full control over new objects)
   * `Object writer` (The AWS account that uploads an ojbect owns the object, has full control over it, can can grant other users access to it through is ACL)
 
+### S3 performance (Upload)
+
+* #### Multi-Part upload
+
+  Recommended for files > 100MB must use for files > 5GB. Can help parallelize uploads
+
+* #### S3 Transfer Acceleration
+
+  Use edge location to forward traffic to the target s3 bucket over a private connection
+
+### S3 performance (Download)
+
+* #### S3 Byte Range Fetches
+
+  Parallelize GETs by requesting specific byte ranges. Better resilience in case of failure. It can also be utilized to retrieve only partial data. 
+
 # Compute & Load-Balancing
 
 ## AWS AppSync
@@ -299,6 +315,24 @@ It's a managed service that use GraphQL in the backend
 ### Cross-zone load balancing
 
 When cross-zone load balancing is enabled, each load balancer node distributes traffic across the registered targets in all enabled Availability Zones
+
+## AWS API Gateway
+
+* ### Edge-Optimized (default)
+
+  The requests are routed through the Cloud Front Edge location. The API gateway still live in one region
+
+* ### Regional
+
+  For client within the same region and could be manually combined with cloudfront (more control over caching strategies and the distribution)
+
+* ### Private
+
+  Can only be accessed from your VPC using and interface VPC endpoint (ENI)
+
+## AWS Global Accelerator
+
+Leverage the AWS internal network to route to your application and use 2 anycast static IP. Comparated to cloudfront, it support other protocol than http (udp && tcp) and bill a fixed hourly charge.
 
 # Data Engineering
 
