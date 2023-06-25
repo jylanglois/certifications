@@ -21,6 +21,38 @@ Help record configuration and changes overt time
 * At each config changes
 * Regular time intervals
 
+# Service Communication
+
+## Amazon SQS
+
+### Visibility Timeout
+
+If a consumer fails to process a message within the Visibility Timeout the message goes back to the queue.
+
+### Maximum Receives
+
+We can set a threshold of how many times a message can go back to the queue.
+
+### Dead Letter Queue (DLQ)
+
+After the Maximum Receives threshold is exceeded, the message goes into a dead letter queue (DLQ)
+
+* #### DLQ of a FIFO queue must also be a FIFO queue
+
+* #### DLQ of a Standard queue must also be Standard queue
+
+### Redrive to Source (DLQ)
+
+Feature to help consume messages in the DLQ to understand what is wrong with them. When the code is fixed, we can redrive the message from the DLQ back into the source queue.
+
+### Amazon SQS messages timers
+
+Message timers let you specify an initial invisibility period for a message added to a queue
+
+### Amazon SQS delay queues
+
+If you create a delay queue, any message that you send to the queue remain invisible to consumers for the duration of the delay period
+
 # Caching
 
 ## Amazon ElasticCache
@@ -43,6 +75,52 @@ Help record configuration and changes overt time
 * Non persistent
 * No backup and restore
 * Multi-threaded architecture
+
+# Databases
+
+## AWS RDS
+
+### Multi-AZ
+
+Standby instance failover instance for failover in case of outage. The replication is synchronous.
+
+### Patching
+
+Booth primary and standby instance are upgraded at the same time.
+
+### Read Replica
+
+Read only copy that Increase Read Throughput. The replication is asynchronous (Eventual Consistency) and can be cross-region.
+
+* #### Promoting
+
+  You can promote a read replica to be a standalone database
+
+## AWS Aurora
+
+### Multi-AZ
+
+By default, it's a multi AZ database.
+
+### Patching
+
+Aurora restart the database cluster, so you might experience a short period of unavailability before resuming use of your cluster.
+
+### Read Replica
+
+Up to 15 read replicas and you can get a reader endpoint to access them ALL. You can do cross region read replica. The data is synchronously replicated since it's replicated across several volumes.
+
+* #### Promoting
+
+  To increase availability, you can use Aurora Replica as failovers targets. That is, if the primary instance fails, an Aurora Replica is promoted to the primary instance.
+
+### Endpoint Types
+
+* #### Cluster Endpoint (Primary && Writer Endpoint (Read and Write))
+
+* #### Reader Endpoint (Provide load-balancing)
+
+* #### Custom Endpoint (Connect to subset of db instances)
 
 # Identity & Federation
 
