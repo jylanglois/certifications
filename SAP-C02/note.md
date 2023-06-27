@@ -428,6 +428,18 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to con
 
 You can use Amazon s3 Event notifications feature to receive notifications when certain events happen in your S3 buckets
 
+### S3 Replication
+
+* #### Cross Region Replication (CRR)
+
+* #### Same Region Replication (SRR)
+
+* #### Combine with Lifecycles Rules
+
+* #### Replication Time Control
+
+  Replicate most objects that you upload to Amazon s3 in seconds, and 99.99% of those objects within 15 minutes
+
 # Compute & Load-Balancing
 
 ## AWS AppSync
@@ -517,6 +529,50 @@ Leverage the AWS internal network to route to your application and use 2 anycast
   Route 53 resolver conditionally forward DNS queries to your DNS resolvers
 
 # Data Engineering
+
+## Amazon Redshift
+
+Redshift is based on PostgreSQL, but not used for OLTP. It's OLAP - online analytical processing (analytic and data warehousing)
+
+### Multi-AZ
+
+Some type of clusters support multi AZ.
+
+### Snapshots & DR
+
+* Snapshot are point in time backups of a cluster stored in s3
+
+* Snapshot are incremental
+
+* You can restore a snapshot into a new cluster
+
+* You can configure redshift to automatically copy snapshots of cluster ton an other region. You can use `snapshot copy grant` to use the KMS key in a other region to encrypt the snapshot and copy it to an other region.
+
+### 2 types of snapshots
+
+* Automated: every 8 hours, every 5GB, or on a schedule with a set retention
+
+* Manual: snapshot is retained until you delete it
+
+### Redshift Spectrum
+
+Query data that is already in s3 without loading it
+
+### Redshift Workload Management (WLM)
+
+Enable you to flexibly manage queries priorities within workloads. Route queries to appropriate queues at runtime.
+
+* ### Automatic (WLM)
+
+  Queues and resources managed by redshift
+
+* ### Manual  (WLM)
+
+  Queues and resources managed by you
+
+### Redshift Concurrency Scaling
+
+Enable to provide consistently fast performance with virtually unlimited users and queries
 
 ## Amazon Athena
 
