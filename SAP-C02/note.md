@@ -21,6 +21,46 @@ Help record configuration and changes overt time
 * At each config changes
 * Regular time intervals
 
+# VPC
+
+## Direct Connect
+
+### Virtual Interface (VIF)
+
+* #### Public VIF
+
+  Connect to Public AWS endpoints (s3 buckets, ec2 service etc...)
+
+* #### Private VIF
+
+  connect to resources in your VPC (EC2 instances, ALB)
+
+* #### Transit Virtual Interface
+
+  connect to resources in a VPC using a Transit Gateway
+
+### Link Aggregation Groups
+
+Get increased speed and failover y summing up existing DX connection into logical one
+
+### Connection Types
+
+* #### Dedicated Connections (1Gbps, 10 Gbps, 100 Gbps)
+
+  Request made to AWS first, then completed by aws Direct Connect Partners
+
+* #### Hosted Connections (50 Mbps, 500 Mbps, 10 Gbps)
+
+  Connection requests are made via AWS Direct Connect Partners and capacity can be added or removed on demand
+
+### Direct Connect Gateway
+
+If you want to setup a Direct Connect to one or more VPC in many different regions (same/cross account)
+
+## VPN Cloud Hub
+
+If you have multiple AWS Site-to-Site VPN connections, you can provide secure communication between site using the AWS VPN CloudHub that you can operate on a simple hub and spoke model that you can use with or without a VPC.
+
 # Service Communication
 
 ## Amazon SQS
@@ -54,6 +94,16 @@ Message timers let you specify an initial invisibility period for a message adde
 If you create a delay queue, any message that you send to the queue remain invisible to consumers for the duration of the delay period
 
 # Caching
+
+## Cloudfront
+
+* ### Signed URL
+
+  Signed URL with expiration to control access to content in cloudfront. Good to restrict access to invidual files
+
+* ### Signed cookies
+
+  Allow you to control who can access your content when you don't want to change your current URLS or when you want to provide access to multiple restricted files.
 
 ## Amazon ElasticCache
 
@@ -372,7 +422,11 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to con
 
 * #### S3 Byte Range Fetches
 
-  Parallelize GETs by requesting specific byte ranges. Better resilience in case of failure. It can also be utilized to retrieve only partial data. 
+  Parallelize GETs by requesting specific byte ranges. Better resilience in case of failure. It can also be utilized to retrieve only partial data.
+
+### S3 Event Notifications
+
+You can use Amazon s3 Event notifications feature to receive notifications when certain events happen in your S3 buckets
 
 # Compute & Load-Balancing
 
@@ -411,6 +465,56 @@ When cross-zone load balancing is enabled, each load balancer node distributes t
 ## AWS Global Accelerator
 
 Leverage the AWS internal network to route to your application and use 2 anycast static IP. Comparated to cloudfront, it support other protocol than http (udp && tcp) and bill a fixed hourly charge.
+
+## Route 53
+
+### Routing Policies
+
+* #### Simple
+
+  Route to a single resource and can return multiple value in the same record
+
+* #### Weighted
+
+  Control the % of the request that go to each specific resource
+
+* #### Latency based
+
+  Redirect to the resource that has the least latency close to us
+
+* #### Failover (Active-Passive)
+
+  Use health check to do a failover
+
+* #### Geolocation
+
+  This routing is based on user location
+
+* #### Geoproximity
+
+  Route traffic to your resources based on the geographic location of users and resources
+
+* #### Traffic flow
+
+  Simplify the process of creating and maintaining records in large and complex configurations
+
+* #### Multi-Value
+
+  Return multiples values, but only healthy one
+
+* #### IP Based Routing
+
+  Routing is based on clients IP address. You provide a list of CIDRS for your clients
+
+### Resolvers Endpoints 
+
+* #### Inbound Endpoint
+
+  DNS resolvers on your network can forward DNS queries to Route 53 Resolver
+
+* #### Outbound Endpoint
+
+  Route 53 resolver conditionally forward DNS queries to your DNS resolvers
 
 # Data Engineering
 
