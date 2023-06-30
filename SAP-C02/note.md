@@ -357,6 +357,27 @@ Bridge between on-premise data and cloud data
 
   With Tape Gateway, companies use the same processes but, in the cloud
 
+## AWS Snow Family
+
+### Type of devices for migration
+
+* #### Snowcone
+
+  Small portable and good for harsh environments. You have the Snowcone with 8TB HDD and Snowcone SSD with 14 TB SSD
+
+* #### Snowball Edge
+
+  80 TB of hdd capacity for optimized storage and 42 for compute optimized. It's good for less then 10 petabyte migration
+
+* #### Snowmobile
+
+  Each snowmobile have 100 PB of capacity
+
+### Type of device for edge computing
+
+* Snowcone
+* Snowball Edge
+
 # Storage
 
 ## AWS DataSync
@@ -427,6 +448,10 @@ S3 Object Ownership is an Amazon S3 bucket-level setting that you can use to con
 ### S3 Event Notifications
 
 You can use Amazon s3 Event notifications feature to receive notifications when certain events happen in your S3 buckets
+
+### S3 Select
+
+With amazon s3 Select you can use structured query languages statement to filter the content of s3 object and retrieve only subset of data you need. You can use ScanRange to select non overlapping byte range for parallelizing.
 
 ### S3 Replication
 
