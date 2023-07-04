@@ -21,6 +21,37 @@ Help record configuration and changes overt time
 * At each config changes
 * Regular time intervals
 
+# Identity & Federation
+
+## AWS Resource Access Manager (ram)
+
+Share resource that you own with any account or within your Organization to avoid resource duplication.
+
+### Resource that can be shared
+
+* #### VPC Subnets 
+
+  Must be from same organization and cannot share security group and default vpc. Participant will manage their own resources
+
+* #### Managed prefix list
+
+  A set of one or more CIDR blocks
+
+  * Customer managed prefix list
+  * AWS-Managed Prefix List
+
+* #### AWS Transit gateway
+
+* #### Route 53
+
+* #### License Manager Configurations
+
+* #### Aurora DB clusters
+
+* #### ACM private autority
+
+* #### etc...
+
 # VPC
 
 ## Direct Connect
@@ -465,6 +496,10 @@ With amazon s3 Select you can use structured query languages statement to filter
 
   Replicate most objects that you upload to Amazon s3 in seconds, and 99.99% of those objects within 15 minutes
 
+## S3 Access Point
+
+* Access Points contain a hostname, an AWS ARN, and an AWS IAM resource policy
+
 # Compute & Load-Balancing
 
 ## AWS AppSync
@@ -498,6 +533,36 @@ When cross-zone load balancing is enabled, each load balancer node distributes t
 * ### Private
 
   Can only be accessed from your VPC using and interface VPC endpoint (ENI)
+
+###  Stages
+
+Changes are deployed to stages (dev, test, prod). Stages can be rollback as a history of deployments is kept
+
+### Caching API response
+
+Caching reduces the number of calls made to the backend. Client can invalidate the cache with header (Cache-Control: max-age=0) or you can flush the entire cache.
+
+### Logging
+
+You can enable cloudwatch logging at the stage level and log full request and responses data. You can also enable xray on the api gateway.
+
+### Authentification
+
+* IAM based access (Pass iam credentials in headers)
+* Lambda Authorizer (verify a custom OAuth, 3rd party authenfication)
+* Cognition User Pools (client authenticate with cognito and pass the token to API gateway)
+
+### Usage Plans && API keys
+
+If you want to make an API available as an offering ($) to your customers.
+
+* #### Usage plan
+
+  Uses api keys to identify clients and meter access. You can configure throttling limits and quota limits that are enforced on invidual client
+
+* #### API Keys
+
+  Can use with usage plan to control access
 
 ## AWS Global Accelerator
 
