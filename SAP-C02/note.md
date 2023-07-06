@@ -21,6 +21,34 @@ Help record configuration and changes overt time
 * At each config changes
 * Regular time intervals
 
+## AWS WAF - Web Application Firewall
+
+### Can be deployed on
+
+* Application Load Balancer
+* API Gateway
+* Cloudfront
+* AppSync
+
+### Web ACL
+
+* #### Rules
+
+  Can include IP addresses, HTTP headers, HTTP body, or URI strings. Can be rate based.
+
+* #### Managed Rules
+
+  Library of over 190 managed rules
+
+  * Baseline Rule Groups (general protection)
+  * Use-case Specific Rule groups (protection for many AWS WAF use cases)
+  * IP Reputation Rule Groups (block request based on source)
+  * Bot control Managed Rule group (block and manage requests from bots)
+
+* #### Rule Actions
+
+  Count | Allow | Block | CAPTCHA
+
 # Identity & Federation
 
 ## AWS Resource Access Manager (ram)
@@ -408,6 +436,28 @@ Bridge between on-premise data and cloud data
 
 * Snowcone
 * Snowball Edge
+
+## VM migration services
+
+### Application Discovery Service (DMS)
+
+Plan migration projects by gathering information about on-premises data centers
+
+* #### Agentless discovery
+
+  An open Virtual Appliance (OVA) for vm inventory
+
+* #### Agent-based discovery
+
+  Agent that will discover system configuration, system performance, running processes
+
+### Server Migration Service (SMS)
+
+Lift and shift (rehost) solution which simplify migrating applications to AWS. (Continuous block level replication)
+
+### Elastic Disaster Recovery (DRS)
+
+Quickly and easily recover your physical, virtual and cloud based servers into AWS (Continuous block level replication)
 
 # Storage
 
@@ -805,3 +855,29 @@ Perform real time analytic on streams using SQL. It's serveries and scale automa
 
 * Kinesis stream
 * Kinesis firehose
+
+## Amazon QuickSight
+
+Serveries machine machine learning powered business intelligence service to create interactive dashboard
+
+### Supported AWS sources
+
+* RDS
+* Aurora
+* Athena
+* Redshift
+* OpenSearch
+* S3
+* Spice (directly in memory quicksight)
+
+### Supported third party sources
+
+* jira
+* On premises database databases (JDBC)
+* import (csv, xlsx, json etc...)
+
+### Security Model
+
+* Users (Standard versions)
+* Groups (enterprise version)
+
