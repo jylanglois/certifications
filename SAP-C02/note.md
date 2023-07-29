@@ -923,5 +923,9 @@ Is a fully managed iot service that makes it easy to detect and respond to event
 
 Seamlessly extends AWS to devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage
 
+### AWS IoT SiteWise
+
+Collect data and generate real time KPIS & metrics to make better data driven decision. It's store data as time series and allow to create dashboard to visualize live and historical data.
+
 
 
