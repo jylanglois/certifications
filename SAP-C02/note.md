@@ -881,3 +881,47 @@ Serveries machine machine learning powered business intelligence service to crea
 * Users (Standard versions)
 * Groups (enterprise version)
 
+# IOT Services
+
+### IOT data analytic
+
+Colect and process data for analytic with 4 component to configure:
+
+* ### Chanel
+
+  Store your raw data
+
+* ### Pipeline
+
+  Use to peform transformation on the raw data
+
+* ### Datastore
+
+  Processed data
+
+* ### Dataset
+
+  Query data
+
+### AWS IoT Core
+
+Managed cloud service that let your iot device talk to AWS managed service or your cloud application.
+
+### AWS IoT Device Defender
+
+A fully managed service that help you secure your fleet of iot device. It audit your iot resources against security best practice. It also let your applying mitigations
+
+### AWS IoT Device Management 
+
+Enable to see and manage your device through a single dashboard. It allow you to index your device and run query for searching and run jobs
+
+###  AWS IoT Events
+
+Is a fully managed iot service that makes it easy to detect and respond to events from IOT sensors end application
+
+### AWS IoT Greengrass
+
+Seamlessly extends AWS to devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage
+
+
+
